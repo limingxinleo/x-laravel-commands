@@ -1,0 +1,31 @@
+<?php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * {{class}}
+ *
+ * @author ModelMapper
+ */
+class {{class}} extends Model
+{
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+    */
+    protected $fillable   = [{{fillable}}];
+
+    protected $table = '{{table}}';
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+    ];    
+
+}

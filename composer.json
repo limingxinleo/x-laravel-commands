@@ -1,0 +1,19 @@
+{
+    "name": "limingxinleo/x-laravel-commands",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "李铭昕",
+            "email": "715557344@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Xin\\Laravel\\": "src"
+        }
+    },
+    "require": {
+        "php": ">=5.6"
+    }
+}

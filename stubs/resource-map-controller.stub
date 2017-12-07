@@ -1,0 +1,83 @@
+<?php
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\{{class}};
+use Illuminate\Http\Request;
+
+/**
+ * {{class}}
+ *
+ * @author ResourceMapper
+ */
+class {{class}}Controller extends Controller
+{
+
+    /**
+     * 列表
+     *{{commentIndex}}
+     * @return   \Response
+     */
+    public function index(Request $request)
+    {
+        $aFiled = [{{fieldIndex}}
+        ];
+        $aFiledValue = $this->validate($oRequest, $aFiled);
+        return Response::listApi(
+            {{class}}::findAll(
+                array_except($aFiledValue, ['iPerPage']),
+                array_get($aFiledValue, 'iPerPage', 10),
+                {{class}}::columns(),
+                {{class}}::orders(),
+                {{class}}::ranges()
+            )
+        );
+    }
+
+    /**
+     * 新增
+     *{{commentStore}}
+     * @return   \Response
+     */
+    public function store(Request $oRequest)
+    {
+        $aFiled = [{{fieldStore}}
+        ];
+        $aFiledValue = $this->validate($oRequest, $aFiled);
+        return Response::detailApi({{class}}::create($aFiledValue));
+    }
+
+    /**
+     * 详细
+     *
+     * @return \Response
+     */
+    public function show($iAutoID)
+    {
+        return Response::detailApi({{class}}::find($iAutoID, {{class}}::columns()));
+    }
+
+    /**
+     * 更新
+     *{{commentUpdate}}
+     * @return   \Response
+     */
+    public function update($iAutoID, Request $oRequest)
+    {
+        $aFiled = [{{fieldUpdate}}
+        ];
+        $aFiledValue = $this->validate($oRequest, $aFiled);
+        return Response::detailApi({{class}}::updateByID($iAutoID, $aFiledValue));
+    }
+
+    /**
+     * 删除
+     *
+     * @return \Response
+     */
+    public function destroy($iAutoID)
+    {
+        return Response::detailApi({{class}}::destroy($iAutoID));
+    }
+
+}
