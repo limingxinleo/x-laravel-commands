@@ -39,7 +39,7 @@ class ModelMeta extends GeneratorCommand
      * @date   2015-07-07
      * @return void
      */
-    public function fire()
+    public function handle()
     {
         $this->table = $this->getNameInput();
         $this->class = ucfirst(camel_case($this->table));
